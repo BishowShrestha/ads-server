@@ -10,5 +10,5 @@ func main() {
 	cfg := utils.LoadConfig()
 	logrus.Info("successfully load configuration")
 	ctl := controller.NewController(cfg)
-	_ = ctl.Run()
+	_ = ctl.Run(cfg)
 }
