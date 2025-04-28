@@ -37,7 +37,7 @@ go run cmd/server/main.go
 ```
 
 The server will be available at:  
-➡️ `http://localhost:8080`
+ `http://localhost:8080`
 
 ### 4. Run with Docker
 
@@ -122,7 +122,7 @@ Register a user click event.
 
 ---
 
-### ➡️ 3. Get Analytics
+###  3. Get Analytics
 
 **Endpoint:** `GET /ads/analytics`
 
@@ -165,7 +165,7 @@ Where:
 ---
 
 
-### ➡️ 4. Prometheus Metrics
+### 5. Prometheus Metrics
 
 **Endpoint:** `GET /metrics`
 
