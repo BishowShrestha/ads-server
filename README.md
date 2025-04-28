@@ -1,15 +1,15 @@
-# 📺t Ad Server Backend
+#  Ad Server Backend
 
 A high-performance, fault-tolerant GoLang backend to **manage**, **track**, and **analyze** video advertisements.
 
 ---
 
-## 🛠 Setup / Run Instructions
+## Setup / Run Instructions
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ad-server.git
+git clone https://github.com/BishowShrestha/ad-server.git
 cd ad-server
 ```
 
@@ -19,7 +19,7 @@ Create a `.env` file or set environment variables:
 
 | Variable | Description |
 |:---------|:------------|
-| `DB_DSN` | PostgreSQL DSN (example: `host=localhost user=postgres password=postgres dbname=ad_server port=5432 sslmode=disable`) |
+| `DATABASE_URL` | PostgreSQL DB (example: `host=localhost user=postgres password=postgres dbname=ad_server port=5432 sslmode=disable`) |
 | `PORT`   | Port to run the server (default: `8080`) |
 
 Example `.env`:
@@ -45,14 +45,14 @@ Build and run the Docker container:
 
 ```bash
 docker build -t ad-server .
-docker run -p 8080:8080 --env-file .env ad-server
+docker run -p 8080:8080 ad-server
 ```
 
 ---
 
-## ⚙️ Concurrency and Multi-Step Processing
+##  Concurrency and Multi-Step Processing
 
-### ✨ Efficient Click Handling
+###  Efficient Click Handling
 
 - When a click event is received at `/ads/click`, the server:
     - **Pushes the event into a buffered Go channel.**
@@ -64,16 +64,16 @@ docker run -p 8080:8080 --env-file .env ad-server
     - **High throughput** and efficient handling of spikes.
     - **Resilience** — temporary DB delays won't lose clicks.
 
-### ✅ Benefits
+###  Benefits
 - Super-fast client response time.
 - No data loss.
 - Easily scalable for viral traffic.
 
 ---
 
-## 📖 API Documentation
+##  API Documentation
 
-### ➡️ 1. Get All Ads
+### 1. Get All Ads
 
 **Endpoint:** `GET /ads`
 
@@ -94,7 +94,7 @@ Fetch all ads with metadata.
 
 ---
 
-### ➡️ 2. Register a Click
+###  2. Register a Click
 
 **Endpoint:** `POST /ads/click`
 
@@ -143,6 +143,28 @@ Where:
 
 ---
 
+### 4. Get Hourly Analytics
+
+**Endpoint:** `GET /ads/analytics/hourly`
+
+**Description:**  
+Get real-time click counts for each ad.
+
+**Response:**
+
+```json
+{
+  "hour": "2025-04-28T20",
+  "count": 98
+}
+```
+Where:
+- Hour: `Hourly Time`
+- Click: `Total Clicks`
+
+---
+
+
 ### ➡️ 4. Prometheus Metrics
 
 **Endpoint:** `GET /metrics`
@@ -157,41 +179,29 @@ Expose metrics for Prometheus scraping, including:
 
 ---
 
-## 📈 Example API Flow
+##  Example API Flow
 
 1. User fetches ads → `GET /ads`
 2. User clicks an ad → `POST /ads/click`
 3. Admin fetches performance → `GET /ads/analytics`
+4. Admin fetches hourly performance → `GET /ads/analytics/hourly`
 
 ---
 
-## 💬 Future Enhancements
+##  Future Enhancements
 
 - Batch database writes for even higher performance.
 - Add Redis buffer for peak loads.
 - Implement circuit breakers on DB operations.
 - Kubernetes deployment YAMLs.
-- Advanced analytics: CTR%, hourly/daily breakdowns.
 
 ---
 
-## 👨‍💼 Authors
+##  Authors
 
-- **Your Name** (Replace with your name)
+- **Bishow Shrestha**
 - Built with: **Go**, **GORM**, **PostgreSQL**, **Docker**, **Prometheus**
 
 ---
 
-## 🚀 Ready to Go!
-
-✅ Setup Instructions  
-✅ API Documentation  
-✅ Concurrency Explanation  
-✅ Production-Ready Format
-
----
-
-# 📢 Good Luck on Your Interview!
-
----
 
