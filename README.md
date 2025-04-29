@@ -193,7 +193,6 @@ Expose metrics for Prometheus scraping, including:
 - Batch database writes for even higher performance.
 - Add Redis buffer for peak loads.
 - Implement circuit breakers on DB operations.
-- Kubernetes deployment YAMLs.
 
 ---
 
